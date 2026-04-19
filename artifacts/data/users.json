@@ -1,0 +1,24 @@
+[
+  {
+    "id": "f5fb465f-cb35-426f-ad1e-1ac2058605d7",
+    "username": "admin",
+    "passwordHash": "fa75a4e005a57aebd6ae3cb5083d9b8fb58e7e2c6e5c973b1ea5a2c720b94c0e",
+    "name": "مدير النظام",
+    "bio": "مدير منصة ميلس تويت",
+    "avatar": "",
+    "role": "admin",
+    "banned": false,
+    "createdAt": "2026-04-19T07:55:42.259Z"
+  },
+  {
+    "id": "38c6f549-c510-4104-8362-13f07229f9b0",
+    "username": "dimon",
+    "passwordHash": "82e22da970a6a26d235f702b79a15929f7380bc35e5fa9b86d65b54d838522fe",
+    "name": "ديمون",
+    "bio": "اسمي ديمون",
+    "avatar": "https://cdn.discordapp.com/attachments/1366697651743100938/1495333096223150161/Screenshot___com_discord_MainActivity.jpg?ex=69e5dcf8&is=69e48b78&hm=47aae7f082c38f6a4bf958ed4bea66ee0b449774b8edc4954a728b05dfccb402&",
+    "role": "user",
+    "banned": true,
+    "createdAt": "2026-04-19T07:59:14.191Z"
+  }
+]
