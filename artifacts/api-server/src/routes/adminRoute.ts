@@ -27,10 +27,10 @@ router.post(
   requireAuth,
   requireAdmin,
   async (req: Request, res: Response) => {
-    const { userId } = req.params;
+    const userId = String(req.params["userId"]);
     const { banned } = req.body as { banned?: boolean };
 
-    const target = users.findById(userId!);
+    const target = users.findById(userId);
     if (!target) {
       res.status(404).json({ error: "المستخدم غير موجود" });
       return;
@@ -67,10 +67,10 @@ router.post(
   requireAuth,
   requireAdmin,
   async (req: Request, res: Response) => {
-    const { userId } = req.params;
+    const userId = String(req.params["userId"]);
     const { admin: makeAdmin } = req.body as { admin?: boolean };
 
-    const target = users.findById(userId!);
+    const target = users.findById(userId);
     if (!target) {
       res.status(404).json({ error: "المستخدم غير موجود" });
       return;
@@ -105,9 +105,9 @@ router.delete(
   requireAuth,
   requireAdmin,
   async (req: Request, res: Response) => {
-    const { userId } = req.params;
+    const userId = String(req.params["userId"]);
 
-    const target = users.findById(userId!);
+    const target = users.findById(userId);
     if (!target) {
       res.status(404).json({ error: "المستخدم غير موجود" });
       return;
