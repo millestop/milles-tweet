@@ -41,10 +41,8 @@ router.get("/stats", (req: Request, res: Response) => {
 });
 
 router.get("/", (req: Request, res: Response) => {
-  const { userId, parentId } = req.query as {
-    userId?: string;
-    parentId?: string;
-  };
+  const userId = req.query["userId"] ? String(req.query["userId"]) : undefined;
+  const parentId = req.query["parentId"] ? String(req.query["parentId"]) : undefined;
 
   let all = posts.getAll();
 
@@ -109,7 +107,8 @@ router.post("/", requireAuth, async (req: Request, res: Response) => {
 });
 
 router.get("/:id", (req: Request, res: Response) => {
-  const post = posts.findById(req.params["id"]!);
+  const postId = String(req.params["id"]);
+  const post = posts.findById(postId);
   if (!post) {
     res.status(404).json({ error: "التغريدة غير موجودة" });
     return;
@@ -118,7 +117,8 @@ router.get("/:id", (req: Request, res: Response) => {
 });
 
 router.delete("/:id", requireAuth, (req: Request, res: Response) => {
-  const post = posts.findById(req.params["id"]!);
+  const postId = String(req.params["id"]);
+  const post = posts.findById(postId);
   if (!post) {
     res.status(404).json({ error: "التغريدة غير موجودة" });
     return;
@@ -145,7 +145,8 @@ router.delete("/:id", requireAuth, (req: Request, res: Response) => {
 });
 
 router.post("/:id/like", requireAuth, async (req: Request, res: Response) => {
-  const post = posts.findById(req.params["id"]!);
+  const postId = String(req.params["id"]);
+  const post = posts.findById(postId);
   if (!post) {
     res.status(404).json({ error: "التغريدة غير موجودة" });
     return;
@@ -179,7 +180,8 @@ router.post("/:id/like", requireAuth, async (req: Request, res: Response) => {
 });
 
 router.post("/:id/retweet", requireAuth, async (req: Request, res: Response) => {
-  const post = posts.findById(req.params["id"]!);
+  const postId = String(req.params["id"]);
+  const post = posts.findById(postId);
   if (!post) {
     res.status(404).json({ error: "التغريدة غير موجودة" });
     return;
@@ -213,7 +215,8 @@ router.post("/:id/retweet", requireAuth, async (req: Request, res: Response) => 
 });
 
 router.get("/:id/replies", (req: Request, res: Response) => {
-  const post = posts.findById(req.params["id"]!);
+  const postId = String(req.params["id"]);
+  const post = posts.findById(postId);
   if (!post) {
     res.status(404).json({ error: "التغريدة غير موجودة" });
     return;
