@@ -74,7 +74,7 @@ router.put("/profile", requireAuth, async (req: Request, res: Response) => {
 });
 
 router.get("/:username", (req: Request, res: Response) => {
-  const { username } = req.params;
+  const username = String(req.params["username"]);
   const user = users.findByUsername(username);
   if (!user) {
     res.status(404).json({ error: "المستخدم غير موجود" });
